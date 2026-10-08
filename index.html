@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hilitos Bucaramanga · Pulseras, recordatorios y detalles para eventos</title>
+<meta name="description" content="Pulseras para compartir y recordatorios para todos tus eventos, hechos a mano en Bucaramanga desde 2020. Arma tu pedido en línea y confírmalo por WhatsApp.">
+<meta name="theme-color" content="#C8102E">
+<link rel="icon" href="img/logo-recortado.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8102E; --red-dark:#9f0c24;
+  --cocoa:#5e382f; --ink:#4a2c25; --muted:#8b6c63; --rose:#c58f7e; --gold:#d6b27a; --line:rgba(94,56,47,.14);
+  --marble:#f7f4f1; --cream:#fffaf6;
+  --pink:#f7d9d4; --yellow:#f6e6bd; --lilac:#e7dcf4; --blue:#d5e8f6; --mint:#d9f0e3;
+  --radius:22px; --shadow:0 14px 36px rgba(94,56,47,.10);
+  --serif:'Cormorant Garamond',Georgia,serif; --script:'Mrs Saint Delafield','Brush Script MT',cursive; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px;background:var(--marble)}
+body{font-family:var(--sans);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.script{font-family:var(--script);font-weight:400;color:var(--rose);line-height:.9}
+.eyebrow{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;letter-spacing:-.01em;color:var(--cocoa)}
+h2{font-size:clamp(2.1rem,4.6vw,3.2rem)}
+.sec{padding:clamp(56px,8vw,104px) 0}
+.sec-head{max-width:640px;margin-bottom:38px}
+.sec-head .script{font-size:clamp(3rem,7vw,4.6rem);display:block;margin-bottom:6px}
+.sec-head p{color:var(--muted);margin-top:12px}
+
+/* ============ FONDO ANIMADO ============ */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--marble)}
+.bg::before{content:"";position:absolute;inset:0;opacity:.55;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.008 .016' numOctaves='4' seed='11'/><feColorMatrix values='0 0 0 0 .62  0 0 0 0 .5  0 0 0 0 .46  0 0 0 .6 -.12'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size:760px;animation:marble 90s linear infinite alternate}
+@keyframes marble{from{background-position:0 0}to{background-position:380px 240px}}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6;will-change:transform}
+.b1{width:52vmax;height:52vmax;left:-14vmax;top:-12vmax;background:var(--pink);animation:d1 34s ease-in-out infinite alternate}
+.b2{width:44vmax;height:44vmax;right:-12vmax;top:18vh;background:var(--yellow);animation:d2 42s ease-in-out infinite alternate}
+.b3{width:48vmax;height:48vmax;left:18vw;bottom:-22vmax;background:var(--lilac);animation:d3 38s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(14vw,10vh) scale(1.12)}}
+@keyframes d2{to{transform:translate(-12vw,-8vh) scale(.92)}}
+@keyframes d3{to{transform:translate(-10vw,-12vh) scale(1.15)}}
+.sp{position:absolute;color:var(--rose);opacity:.2;animation:tw var(--d,6s) ease-in-out var(--l,0s) infinite}
+.sp svg{width:100%;height:100%;display:block;fill:currentColor}
+@keyframes tw{0%,100%{opacity:.12;transform:scale(.7) rotate(0)}50%{opacity:.85;transform:scale(1.1) rotate(25deg)}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s,box-shadow .2s}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(200,16,46,.28)}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid var(--cocoa);color:var(--cocoa)}
+.btn-ghost:hover{background:var(--cocoa);color:#fff}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px}
+.brand img{height:66px;width:auto;mix-blend-mode:multiply;transition:transform .4s}
+.brand:hover img{transform:scale(1.05)}
+.nav{display:flex;gap:28px;font-size:.9rem;font-weight:500}
+.nav a{position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .25s}
+.nav a:hover::after{width:100%}
+.cart-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--cocoa);font-weight:600;font-size:.88rem;transition:.2s;background:rgba(255,255,255,.6)}
+.cart-btn:hover{background:var(--cocoa);color:#fff}
+.cart-btn .count{min-width:22px;height:22px;border-radius:999px;background:var(--red);color:#fff;font-size:.75rem;display:grid;place-items:center;padding:0 6px}
+@media(max-width:760px){.nav{display:none}.top .wrap{height:76px}.brand img{height:58px}}
+
+/* ============ HERO (centrado) ============ */
+.hero{position:relative;overflow:hidden;text-align:center}
+.hero .wrap{display:flex;flex-direction:column;align-items:center;padding-block:clamp(28px,5vw,64px)}
+.halo{position:relative;width:min(420px,78vw);aspect-ratio:1;display:grid;place-items:center;margin-bottom:6px}
+.disc{position:absolute;inset:9%;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:0 26px 60px rgba(94,56,47,.14),inset 0 0 0 1px rgba(197,143,126,.35);animation:float 7s ease-in-out infinite}
+.disc img{width:70%;mix-blend-mode:multiply}
+.orbit{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(197,143,126,.75);animation:spin 46s linear infinite}
+.orbit.o2{inset:-7%;border:1px solid rgba(214,178,122,.55);animation-duration:70s;animation-direction:reverse}
+.dot{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;color:var(--rose)}
+.dot.g{color:var(--gold);width:14px;height:14px;margin:-7px 0 0 -7px}
+.dot svg{width:100%;height:100%;fill:currentColor;display:block}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .script.big{display:block;font-size:clamp(3rem,7.5vw,5.2rem);margin-top:6px}
+.orn{display:flex;align-items:center;gap:14px;color:var(--rose);margin:10px 0 18px}
+.orn::before,.orn::after{content:"";width:clamp(40px,10vw,110px);height:1px;background:linear-gradient(90deg,transparent,var(--rose))}
+.orn::after{transform:scaleX(-1)}
+.orn svg{width:14px;height:14px;fill:currentColor}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);max-width:820px;margin:0 auto 20px}
+.hero h1 em{color:var(--red);font-style:italic}
+.hero p.lead{font-size:1.06rem;color:var(--muted);max-width:600px;margin:0 auto}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;justify-content:center}
+.hero .mini{display:flex;gap:10px 26px;flex-wrap:wrap;justify-content:center;margin-top:28px;font-size:.84rem;color:var(--muted)}
+.hero .mini span::before{content:"º6";color:var(--rose);margin-right:6px}
+.trio{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,4vw,52px);margin-top:clamp(40px,6vw,72px);width:100%}
+.trio figure{display:flex;flex-direction:column;align-items:center;gap:18px}
+.trio .oval{border-radius:50%;overflow:hidden;aspect-ratio:3/4;box-shadow:0 0 0 6px rgba(255,255,255,.92),0 0 0 7px var(--rose),0 24px 48px rgba(94,56,47,.16);animation:float 8s ease-in-out infinite}
+.trio .oval img{width:100%;height:100%;object-fit:cover}
+.trio .t1 .oval,.trio .t3 .oval{width:clamp(96px,18vw,200px)}
+.trio .t2 .oval{width:clamp(116px,23vw,250px);aspect-ratio:3/3.9;animation-delay:-3s}
+.trio .t1,.trio .t3{margin-top:clamp(28px,5vw,64px)}
+.trio .t3 .oval{animation-delay:-5s}
+.trio figcaption{font-family:var(--script);font-size:clamp(1.5rem,3.4vw,2.3rem);color:var(--rose);line-height:1}
+.hero .sp{opacity:.8}
+.swirl{position:absolute;pointer-events:none;stroke:var(--rose);fill:none;stroke-width:1.2;opacity:.55;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 5s ease-out .4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+
+/* trust strip */
+.strip{border-block:1px solid var(--line);background:rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:26px}
+.strip div{text-align:center;font-size:.84rem;color:var(--muted)}
+.strip strong{display:block;font-family:var(--serif);font-size:1.4rem;color:var(--cocoa);font-weight:700}
+@media(max-width:760px){.strip .wrap{grid-template-columns:repeat(2,1fr)}}
+
+/* filters */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.chip{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);font-size:.85rem;font-weight:500;background:rgba(255,255,255,.75);transition:.2s}
+.chip:hover{border-color:var(--cocoa)}
+.chip[aria-pressed="true"]{background:var(--cocoa);border-color:var(--cocoa);color:#fff}
+
+/* products */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:22px}
+.card{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;animation:pop .5s both}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .media{aspect-ratio:1/1.05;position:relative;overflow:hidden}
+.card .media img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .media img{transform:scale(1.04)}
+.card .media svg{width:100%;height:100%;transition:transform .5s}
+.card:hover .media svg{transform:scale(1.05)}
+.tag{position:absolute;top:12px;left:12px;background:#fff;border-radius:999px;padding:4px 12px;font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--red)}
+.card .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-size:1.4rem}
+.card p{font-size:.84rem;color:var(--muted);flex:1}
+.price{display:flex;align-items:center;gap:10px;font-weight:600;margin-top:6px;color:var(--cocoa)}
+.price::before,.price::after{content:"";height:1px;flex:1;background:var(--rose);opacity:.5}
+.price::before{display:none}
+.price em{font-style:normal;color:var(--rose);font-size:.9rem}
+.price small{font-weight:400;color:var(--muted);font-size:.78rem}
+.buy{display:flex;gap:10px;align-items:center;margin-top:12px}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:#fff}
+.qty button{width:34px;height:36px;font-size:1.1rem;line-height:1}
+.qty button:hover{color:var(--red)}
+.qty span{min-width:26px;text-align:center;font-weight:600;font-size:.9rem}
+.add{flex:1;padding:10px 14px;border-radius:999px;background:var(--cocoa);color:#fff;font-weight:600;font-size:.85rem;transition:.2s}
+.add:hover{background:var(--red)}
+.more-wrap{text-align:center;margin-top:34px}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+.incl{margin-top:26px;text-align:center;color:var(--muted);font-size:.9rem}
+.incl b{color:var(--cocoa)}
+
+/* guía (arco, como el catálogo) */
+.guide{background:rgba(255,255,255,.45)}
+.guide .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.arch-box{position:relative;border:1.2px solid var(--rose);border-radius:999px 999px 0 0;padding:84px 40px 44px;background:rgba(255,255,255,.55);text-align:center}
+.arch-box .script{font-size:3.6rem;display:block;color:var(--cocoa);margin-bottom:12px}
+.arch-box ol{list-style:none;counter-reset:g;text-align:left;max-width:300px;margin:0 auto 26px;display:grid;gap:12px}
+.arch-box li{counter-increment:g;display:flex;gap:12px;align-items:flex-start;font-size:.95rem}
+.arch-box li::before{content:counter(g);flex:none;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;display:grid;place-items:center;font-size:1rem}
+.contact{display:grid;gap:8px;justify-items:center;font-size:.95rem}
+.contact a{display:inline-flex;gap:8px;align-items:center}
+.contact a:hover{color:var(--red)}
+.guide .copy-side h2{margin:6px 0 14px}
+.guide .copy-side p{color:var(--muted);margin-bottom:22px}
+.facts{display:grid;gap:12px}
+.fact{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:16px;padding:14px 18px}
+.fact .sp2{flex:none;width:22px;color:var(--rose);margin-top:3px}
+.fact .sp2 svg{width:100%;fill:currentColor}
+.fact b{display:block;color:var(--cocoa)}
+.fact span{font-size:.88rem;color:var(--muted)}
+@media(max-width:860px){.guide .wrap{grid-template-columns:1fr}}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.shot{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;cursor:zoom-in;background:var(--pink)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.shot:hover img{transform:scale(1.05)}
+.shot figcaption{position:absolute;inset:auto 0 0 0;padding:40px 18px 16px;color:#fff;background:linear-gradient(transparent,rgba(60,30,24,.6));font-family:var(--serif);font-size:1.3rem}
+.shot.more{display:grid;place-items:center;text-align:center;padding:24px;cursor:default;background:rgba(231,220,244,.7)}
+.shot.more h3{font-size:1.9rem;margin-bottom:10px}
+.shot.more p{font-size:.9rem;color:#5b4a62;margin-bottom:18px}
+@media(max-width:760px){.gallery{grid-template-columns:1fr 1fr}.shot.more{grid-column:1/-1;aspect-ratio:auto}}
+dialog.lb{border:0;background:transparent;max-width:min(92vw,560px);max-height:92vh;margin:auto}
+dialog.lb::backdrop{background:rgba(30,15,12,.82)}
+dialog.lb img{border-radius:16px;max-height:88vh;width:auto;margin:auto}
+
+/* promise */
+.promise{background:linear-gradient(160deg,#5e382f,#3f241d);color:#fff;text-align:center;position:relative;overflow:hidden}
+.promise h2{max-width:760px;margin:10px auto 0;color:#fff}
+.promise h2 em{color:#ffb4c0}
+.promise .script{font-size:3.6rem;color:#e8b9a8;display:block}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px;text-align:left}
+.pillar{border-top:1px solid rgba(255,255,255,.28);padding-top:20px}
+.pillar h3{font-size:1.5rem;margin-bottom:6px;color:#fff}
+.pillar p{color:rgba(255,255,255,.72);font-size:.92rem}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);margin-top:60px}
+.quote span{display:block;font-family:var(--sans);font-style:normal;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:10px}
+@media(max-width:760px){.pillars{grid-template-columns:1fr}}
+
+/* final cta */
+.final{background:linear-gradient(120deg,rgba(247,217,212,.9),rgba(246,230,189,.9) 55%,rgba(231,220,244,.9));text-align:center}
+.final h2{max-width:700px;margin:6px auto 14px}
+.final p{max-width:480px;margin:0 auto 26px;color:#6a5149}
+
+/* footer */
+footer.site{background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:48px 0 28px;font-size:.88rem;color:var(--muted)}
+footer.site .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer.site img{height:110px;mix-blend-mode:multiply}
+footer.site .links{display:flex;gap:22px;flex-wrap:wrap}
+footer.site .links a:hover{color:var(--red)}
+.watermark{margin-top:30px;padding-top:18px;border-top:1px dashed var(--line);text-align:center;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:#b9a69f}
+.watermark b{color:#8d7770;font-weight:600;letter-spacing:.34em}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(40,20,16,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:#fff;z-index:100;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.14)}
+.drawer.on{transform:none}
+.drawer>header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.drawer>header h2{font-size:1.9rem}
+.x{width:38px;height:38px;border-radius:50%;font-size:1.3rem;border:1.5px solid var(--line)}
+.x:hover{border-color:var(--cocoa)}
+.drawer .scroll{flex:1;overflow:auto;padding:20px 24px}
+.line-item{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line-item .th{width:56px;height:56px;border-radius:12px;overflow:hidden}
+.line-item .th img,.line-item .th svg{width:100%;height:100%;object-fit:cover}
+.line-item b{font-size:.92rem;display:block;line-height:1.3}
+.line-item small{color:var(--muted)}
+.line-item .qty{transform:scale(.88);transform-origin:right}
+.rm{font-size:.72rem;color:var(--muted);text-decoration:underline}
+.rm:hover{color:var(--red)}
+.cart-empty{text-align:center;padding:48px 10px;color:var(--muted)}
+.cart-empty strong{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--cocoa);margin-bottom:6px}
+form.order{margin-top:22px;display:grid;gap:12px}
+form.order h3{font-size:1.4rem}
+.field{display:grid;gap:4px}
+.field label{font-size:.75rem;font-weight:600;letter-spacing:.04em}
+.field input,.field select,.field textarea{padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--cocoa)}
+.field .err{display:none;color:var(--red);font-size:.75rem}
+.field.bad input,.field.bad select{border-color:var(--red)}
+.field.bad .err{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:8px}
+.seg label{flex:1;text-align:center;padding:10px;border:1.5px solid var(--line);border-radius:12px;font-size:.85rem;cursor:pointer;font-weight:500}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){border-color:var(--red);background:#fff4f6;color:var(--red)}
+.drawer>footer{padding:16px 24px 22px;border-top:1px solid var(--line);background:var(--cream)}
+.total{display:flex;justify-content:space-between;font-weight:600;margin-bottom:4px}
+.total strong{font-family:var(--serif);font-size:1.7rem;color:var(--cocoa)}
+.note{font-size:.74rem;color:var(--muted);margin-bottom:12px}
+.drawer>footer .btn{width:100%}
+.drawer>footer .copy{display:block;margin:10px auto 0;font-size:.8rem;text-decoration:underline;color:var(--muted)}
+.float{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none}
+.float .btn{width:100%;box-shadow:0 12px 30px rgba(200,16,46,.4)}
+@media(max-width:760px){.float.on{display:block}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--cocoa);color:#fff;padding:12px 22px;border-radius:999px;font-size:.88rem;opacity:0;pointer-events:none;transition:.3s;z-index:120}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ============ CELULAR ============ */
+html{-webkit-text-size-adjust:100%}
+button,a,.chip{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+input,select,textarea{font-size:16px}  /* evita el zoom automático en iPhone */
+@media(max-width:760px){body.has-float{padding-bottom:88px}}
+@media(max-width:760px){
+  .sec{padding:48px 0}
+  .sec-head{margin-bottom:26px}
+  .blob{filter:blur(48px)}
+  #sparks .sp:nth-child(n+9){display:none}
+  .hero .script.big{font-size:2.9rem}
+  .hero h1{font-size:2.35rem}
+  .hero p.lead{font-size:1rem}
+  .hero .cta .btn{flex:1 1 100%}
+  .hero .mini{flex-direction:column;gap:6px;align-items:center}
+  .trio{gap:14px}
+  .strip .wrap{gap:14px;padding-block:20px}
+  .strip strong{font-size:1.15rem}
+  .strip div{font-size:.78rem}
+  /* filtros en una sola fila deslizable */
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding:2px 16px 8px;scroll-snap-type:x proximity;scrollbar-width:none;margin-bottom:22px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;scroll-snap-align:start;padding:11px 18px}
+  /* catálogo en 2 columnas compactas */
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card{border-radius:18px}
+  .card .media{aspect-ratio:1/1}
+  .tag{top:8px;left:8px;font-size:.58rem;padding:3px 9px;letter-spacing:.04em}
+  .card .body{padding:12px 12px 14px;gap:2px}
+  .card h3{font-size:1.12rem;line-height:1.15}
+  .card p{font-size:.76rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-size:.9rem;margin-top:6px}
+  .price small{font-size:.7rem}
+  .price em{font-size:.78rem}
+  .price::after{display:none}
+  .buy{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}
+  .qty{justify-content:space-between}
+  .qty button{width:42px;height:40px;font-size:1.2rem}
+  .add{padding:12px 10px;font-size:.84rem}
+  .arch-box{padding:70px 22px 34px}
+  .arch-box .script{font-size:3rem}
+  .gallery{gap:12px}
+  .shot:nth-child(1){grid-column:1/-1;aspect-ratio:4/3.5}
+  .shot:nth-child(1) img{object-position:50% 38%}
+  .shot figcaption{font-size:1.05rem;padding:30px 12px 12px}
+  .promise .script{font-size:3rem}
+  .final .script{font-size:2.8rem!important}
+  footer.site .row{flex-direction:column;align-items:flex-start}
+  footer.site img{height:90px}
+  /* pedido */
+  .drawer{width:100%;height:100dvh}
+  .drawer .scroll{padding:14px 18px;overscroll-behavior:contain}
+  .drawer>header{padding:12px 18px}
+  .drawer>header h2{font-size:1.6rem}
+  .drawer>footer{padding:10px 18px calc(12px + env(safe-area-inset-bottom))}
+  .total strong{font-size:1.4rem}
+  .note{font-size:.68rem;line-height:1.35;margin-bottom:8px}
+  .drawer>footer .btn{padding:12px}
+  .drawer>footer .copy{margin-top:6px;font-size:.74rem}
+  .float{bottom:calc(14px + env(safe-area-inset-bottom))}
+  .two{grid-template-columns:1fr}
+  .qty button{touch-action:manipulation}
+  .x{width:44px;height:44px}
+  .toast{bottom:100px;width:max-content;max-width:90vw;text-align:center}
+}
+@media(max-width:380px){
+  .wrap{width:calc(100% - 28px)}
+  .grid{gap:10px}
+  .card h3{font-size:1.02rem}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}.swirl{stroke-dashoffset:0}.sp{opacity:.4}}
+</style>
+</head>
+<body>
+
+<!-- Estrella de cuatro puntas reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="spark" viewBox="0 0 24 24"><path d="M12 0C12.7 7.2 16.8 11.3 24 12 16.8 12.7 12.7 16.8 12 24 11.3 16.8 7.2 12.7 0 12 7.2 11.3 11.3 7.2 12 0Z"/></symbol></svg>
+
+<!-- Fondo animado: mármol suave + luces que se desplazan + destellos -->
+<div class="bg" aria-hidden="true">
+  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+  <div id="sparks"></div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Hilitos Bucaramanga, inicio"><img src="img/logo-recortado.png" alt="Hilitos Bucaramanga"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#guia">Guía de compra</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#promesa">Por qué nosotros</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Abrir mi pedido">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+      Mi pedido <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="swirl" style="left:-40px;top:-20px;width:420px" viewBox="0 0 420 260" aria-hidden="true"><path d="M0 40C90 10 150 90 230 70S360 0 420 60"/><path d="M0 70C80 50 140 120 220 100S350 40 420 90" opacity=".6"/></svg>
+    <svg class="swirl" style="right:-40px;top:-10px;width:380px;transform:scaleX(-1)" viewBox="0 0 420 260" aria-hidden="true"><path d="M0 40C90 10 150 90 230 70S360 0 420 60"/><path d="M0 70C80 50 140 120 220 100S350 40 420 90" opacity=".6"/></svg>
+    <div class="wrap">
+      <div class="halo rv">
+        <div class="orbit o2"><i class="dot g" style="left:50%;top:0"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></i><i class="dot g" style="left:50%;top:100%"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></i></div>
+        <div class="orbit"><i class="dot sp" style="left:100%;top:50%;--d:5s"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></i><i class="dot" style="left:14.6%;top:85.4%"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></i></div>
+        <div class="disc"><img src="img/logo-recortado.png" alt="Hilitos Bucaramanga · Since 2020"></div>
+      </div>
+      <div class="rv">
+        <span class="script big">Hecho a mano, con cariño</span>
+        <div class="orn" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></div>
+        <h1>El detalle que hace que tu evento <em>se recuerde</em> para siempre</h1>
+        <p class="lead">Pulseras personalizadas para parejas, amigos y familia, y recordatorios para cumpleaños, bautizos, comuniones, baby showers y todo lo que vale la pena celebrar. Arma tu pedido aquí y confírmalo por WhatsApp.</p>
+        <div class="cta">
+          <a href="#catalogo" class="btn btn-primary">Armar mi pedido</a>
+          <a href="#eventos" class="btn btn-ghost">Ver eventos reales</a>
+        </div>
+        <div class="mini"><span>Cartón personalizado incluido</span><span>Color de hilo a tu elección</span><span>Desde 2020</span></div>
+      </div>
+      <div class="trio rv">
+        <figure class="t1"><div class="oval"><img src="img/recordatorio-honey.webp" alt="Recordatorios en vasija de miel" style="object-position:50% 72%"></div><figcaption>Recordatorios</figcaption></figure>
+        <figure class="t2"><div class="oval"><img src="img/evento-cumple.webp" alt="Primer cumpleaños de abejita" style="object-position:50% 38%"></div><figcaption>Cumpleaños</figcaption></figure>
+        <figure class="t3"><div class="oval"><img src="img/evento-bautizo.webp" alt="Bautizo en azul y dorado" style="object-position:40% 50%"></div><figcaption>Bautizos</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div><strong>Desde 2020</strong>acompañando celebraciones</div>
+      <div><strong>Hechas a mano</strong>personalizadas para ti</div>
+      <div><strong>Cartón incluido</strong>con mensaje y color de hilo a elección</div>
+      <div><strong>Envío local y nacional</strong>desde Bucaramanga</div>
+    </div>
+  </div>
+
+  <!-- CATÁLOGO -->
+  <section class="sec" id="catalogo">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="script">Catálogo</span>
+        <h2>Elige el detalle perfecto</h2>
+        <p>Pulseras para parejas, amigos y familia, y recordatorios para tu evento. Agrega lo que te guste, cuéntanos tu idea y lo hacemos a tu medida.</p>
+      </div>
+      <div class="chips rv" id="catChips" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+      <div class="more-wrap" id="moreWrap"></div>
+      <p class="incl rv">✦ <b>Cada pulsera incluye un cartón personalizado</b> y el color de hilo que desees ✦</p>
+    </div>
+  </section>
+
+  <!-- GUÍA DE COMPRA -->
+  <section class="sec guide" id="guia">
+    <div class="wrap">
+      <div class="arch-box rv">
+        <span class="script">Guía de compra</span>
+        <ol>
+          <li>Elige el producto que deseas comprar</li>
+          <li>Envíanos mensaje o captura vía WhatsApp</li>
+          <li>Selecciona tu forma de pago y envío (Nacional o Local)</li>
+          <li>Llena tus datos</li>
+          <li>Recibe tu pedido</li>
+        </ol>
+        <span class="script" style="font-size:2.8rem">Contáctanos</span>
+        <div class="contact">
+          <a id="waLink2" href="#" target="_blank" rel="noopener">📞 317 893 6363</a>
+          <a href="https://instagram.com/hilitosbga" target="_blank" rel="noopener">@hilitosbga</a>
+          <a href="https://facebook.com/hilitosbucaramanga" target="_blank" rel="noopener">Hilitosbucaramanga</a>
+          <span>Bucaramanga, Santander, Colombia</span>
+        </div>
+      </div>
+      <div class="copy-side rv">
+        <span class="eyebrow">Así de fácil</span>
+        <h2>Tu pedido, sin complicaciones</h2>
+        <p>Arma tu pedido en esta página y te llega ya escrito a nuestro WhatsApp. Allí resolvemos dudas, afinamos el diseño y acordamos pago y entrega.</p>
+        <div class="facts">
+          <div class="fact"><span class="sp2"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></span><div><b>Personalizado de verdad</b><span>Nombres, iniciales, fechas, colores de hilo y mensaje del cartón.</span></div></div>
+          <div class="fact"><span class="sp2"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></span><div><b>Pulseras que brillan</b><span>Con piedra luminosa que ilumina en la oscuridad.</span></div></div>
+          <div class="fact"><span class="sp2"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></span><div><b>Entrega local o nacional</b><span>Te acompañamos desde el pedido hasta que lo recibes.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTOS -->
+  <section class="sec" id="eventos">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="script">Celebraciones</span>
+        <h2>Eventos que ya llevan un detalle Hilitos</h2>
+        <p>Tu evento merece verse tan bonito como lo imaginas. Mira lo que podemos crear juntos.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot rv" data-full="img/evento-cumple.webp"><img src="img/evento-cumple.webp" alt="Decoración de primer cumpleaños con temática de abejita, globos rosados, amarillos y lilas" loading="lazy"><figcaption>Primer añito de abejita</figcaption></figure>
+        <figure class="shot rv" data-full="img/evento-bautizo.webp"><img src="img/evento-bautizo.webp" alt="Montaje de bautizo con globos azules, blancos y dorados" loading="lazy"><figcaption>Bautizo en azul y dorado</figcaption></figure>
+        <figure class="shot rv" data-full="img/recordatorio-honey.webp"><img src="img/recordatorio-honey.webp" alt="Dos recordatorios en forma de vasija de miel con tarjeta de Winnie Pooh" loading="lazy"><figcaption>Vasijas de miel “Honey”</figcaption></figure>
+        <div class="shot more rv"><div><h3>¿Cuál será tu historia?</h3><p>Cuéntanos tu idea y hacemos que cada invitado se lleve un pedacito de tu celebración.</p><a href="#catalogo" class="btn btn-primary">Quiero mi detalle</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMESA -->
+  <section class="sec promise" id="promesa">
+    <div class="wrap">
+      <span class="script">Nuestra promesa</span>
+      <h2 class="rv">Los invitados olvidan la hora, pero <em>nunca olvidan</em> un detalle hecho con amor</h2>
+      <div class="pillars">
+        <div class="pillar rv"><h3>Cuidado en cada pieza</h3><p>Cada pulsera y cada recordatorio se revisa uno por uno antes de entregarse. Tu evento es importante, y para nosotros también.</p></div>
+        <div class="pillar rv"><h3>Tú decides el estilo</h3><p>Colores, nombres, mensajes y temáticas a tu medida. Lo que imaginas, lo hacemos realidad.</p></div>
+        <div class="pillar rv"><h3>Clientes que vuelven</h3><p>Cada celebración nos une a una familia. Por eso tu próximo detalle siempre empieza más fácil con nosotros.</p></div>
+      </div>
+      <p class="quote rv">“Un detalle pequeño, un recuerdo enorme.”<span>Hilitos Bucaramanga</span></p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="sec final">
+    <div class="wrap rv">
+      <span class="script" style="font-size:3.4rem;display:block">Agenda tu fecha</span>
+      <h2>Tu celebración se acerca. Que el detalle no sea lo último en tu lista.</h2>
+      <p>Escríbenos con tiempo y asegura el diseño que tienes en mente para tu gran día.</p>
+      <button class="btn btn-primary" id="ctaCart">Ver mi pedido</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <img src="img/logo-recortado.png" alt="Hilitos Bucaramanga, desde 2020">
+      <div class="links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#guia">Guía de compra</a>
+        <a href="https://instagram.com/hilitosbga" target="_blank" rel="noopener">Instagram @hilitosbga</a>
+        <a href="https://facebook.com/hilitosbucaramanga" target="_blank" rel="noopener">Facebook</a>
+        <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <p style="margin-top:18px">Bucaramanga, Santander, Colombia · Pulseras y detalles para todos los eventos ✨</p>
+    <div class="watermark">Diseñado y desarrollado por <b>SONETIX</b></div>
+  </div>
+</footer>
+
+<div class="float" id="floatBar"><button class="btn btn-primary" id="floatBtn"></button></div>
+<div class="scrim" id="scrim"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<aside class="drawer" id="drawer" aria-label="Mi pedido" aria-hidden="true">
+  <header><h2>Mi pedido</h2><button class="x" id="closeCart" aria-label="Cerrar">×</button></header>
+  <div class="scroll">
+    <div id="items"></div>
+    <form class="order" id="orderForm" novalidate>
+      <h3>Tus datos</h3>
+      <div class="field" id="f-name"><label for="name">Tu nombre</label><input id="name" autocomplete="name" placeholder="Ej: María Gómez"><span class="err">Cuéntanos tu nombre.</span></div>
+      <div class="field" id="f-phone"><label for="phone">Tu celular</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 123 4567"><span class="err">Escribe un celular válido (10 dígitos).</span></div>
+      <div class="two">
+        <div class="field" id="f-event"><label for="event">Ocasión</label>
+          <select id="event"><option value="">Selecciona…</option></select><span class="err">Elige la ocasión.</span></div>
+        <div class="field" id="f-date"><label for="date">Fecha en que lo necesitas</label><input id="date" type="date"><span class="err">Elige una fecha futura.</span></div>
+      </div>
+      <div class="field"><label>Envío</label>
+        <div class="seg">
+          <label><input type="radio" name="delivery" value="Local (Bucaramanga)" checked><span>Local</span></label>
+          <label><input type="radio" name="delivery" value="Nacional"><span>Nacional</span></label>
+        </div>
+      </div>
+      <div class="field"><label for="notes">Nombres, iniciales, colores de hilo o mensaje del cartón (opcional)</label><textarea id="notes" rows="3" placeholder="Ej: iniciales A y M, hilo rojo y negro, mensaje: “Para siempre amigas”"></textarea></div>
+    </form>
+  </div>
+  <footer>
+    <div class="total"><span>Total estimado</span><strong id="total">$0</strong></div>
+    <p class="note" id="totalNote">El pago y el envío se acuerdan por WhatsApp.</p>
+    <button class="btn btn-primary" id="send" disabled>Enviar pedido por WhatsApp</button>
+    <button class="copy" id="copy" type="button">o copiar el resumen del pedido</button>
+  </footer>
+</aside>
+
+<dialog class="lb" id="lb"><img alt=""></dialog>
+
+<script>
+/* ============ CONFIGURACIÓN (edita aquí) ============ */
+const WHATSAPP = "573178936363";      // número del negocio con indicativo (tomado de tu catálogo de Canva)
+const BUSINESS = "Hilitos Bucaramanga";
+const OCCASIONS = ["Pareja","Amigos","Familia","Cumpleaños","Bautizo","Primera comunión","Baby shower","Matrimonio","Grado","Otro"];
+const CATS = ["Lo más vendido","Esenciales","Inicial y corazón","Iniciales y fecha","Tornasol y luminosas","Recordatorios"];
+const LIMIT = 12;                     // cuántos productos se ven en "Todos" antes de "Ver todo"
+
+/* Precios y nombres tomados del catálogo de Canva (COP). price:null = "Cotiza por WhatsApp".
+   kind = dibujo de la ilustración; img = foto real si existe. */
+const L = "Hecha a mano, personalizada y con una piedra que ilumina en la oscuridad.";
+const C = "Incluye cartón personalizado y el color de hilo que desees.";
+const PRODUCTS = [
+  // Lo más vendido
+  {id:"lum-pers",  cat:"Lo más vendido", name:"Par luminosas personalizadas", price:18500, unit:"par", kind:"glow",  bg:"#dfe9f7", c:["#2f6fed","#f0c24b"], desc:L, tag:"Más vendido"},
+  {id:"lum-corona",cat:"Lo más vendido", name:"Par luminosas corona",         price:18000, unit:"par", kind:"crown", bg:"#e7dcf4", c:["#1f3b8a","#1f3b8a"], desc:L, tag:"Más vendido"},
+  {id:"lum-serp",  cat:"Lo más vendido", name:"Par serpientes luminosas",     price:26000, unit:"par", kind:"snake", bg:"#d9f0e3", c:["#1f7a4d","#1b1b1d"], desc:L, tag:"Más vendido"},
+  // Esenciales
+  {id:"unidad",    cat:"Esenciales", name:"Pulsera por unidad",       price:8000,  unit:"c/u", kind:"plain", bg:"#f7d9d4", c:["#e8467c","#e8467c"], desc:"Una pulsera para ti o para regalar. "+C},
+  {id:"amigos2",   cat:"Esenciales", name:"Pulseras amigos x2",       price:14000, unit:"par", kind:"glow",  bg:"#d5e8f6", c:["#1f3b8a","#1b1b1d"], desc:"Para parejas, amigos o familia. "+C},
+  {id:"amigos3",   cat:"Esenciales", name:"Pulseras amigos x3",       price:21000, unit:"las 3", kind:"glow", bg:"#f6e6bd", c:["#1b1b1d","#1f3b8a"], desc:"Un trío para compartir. "+C},
+  {id:"hilo2",     cat:"Esenciales", name:"Pulseras x2 hilo sencillo",price:12000, unit:"par", kind:"plain", bg:"#f7d9d4", c:["#1b1b1d","#6b3f33"], desc:"Sencillas y con significado, en varios diseños de cartón. "+C},
+  // Inicial y corazón
+  {id:"inicial",   cat:"Inicial y corazón", name:"Pulseras con inicial",        price:14500, unit:"par", kind:"initial", bg:"#e7dcf4", c:["#8a5cc4","#8a5cc4"], txt:["A","M"], desc:C},
+  {id:"corazon",   cat:"Inicial y corazón", name:"Pulseras con corazón",        price:14500, unit:"par", kind:"heart",   bg:"#f7d9d4", c:["#C8102E","#C8102E"], desc:C},
+  {id:"cor-pied",  cat:"Inicial y corazón", name:"Corazón luminoso o piedra luminosa", price:14500, unit:"par", kind:"glow", bg:"#d9f0e3", c:["#1f7a4d","#1b1b1d"], desc:"Elige corazón luminoso o piedra luminosa. "+C},
+  {id:"ini-cor",   cat:"Inicial y corazón", name:"Pulseras con inicial y corazón", price:15000, unit:"par", kind:"initheart", bg:"#d5e8f6", c:["#2f6fed","#2f6fed"], txt:["J","S"], desc:C},
+  {id:"cor-lum",   cat:"Inicial y corazón", name:"Pulseras con corazón luminoso", price:14000, unit:"par", kind:"heartglow", bg:"#dfe9f7", c:["#1f3b8a","#1f3b8a"], desc:C},
+  {id:"letra-cor", cat:"Inicial y corazón", name:"Pulseras letra corazón",      price:15000, unit:"par", kind:"initheart", bg:"#f6e6bd", c:["#1b1b1d","#1b1b1d"], txt:["L","V"], desc:C},
+  // Iniciales y fecha
+  {id:"ini-fecha", cat:"Iniciales y fecha", name:"Pulseras con iniciales y fecha", price:18000, unit:"par", kind:"date", bg:"#f7d9d4", c:["#C8102E","#C8102E"], txt:["A","M"], desc:"Algunos diseños tienen un valor de $18.500; te lo confirmamos por WhatsApp. "+C, tag:"Para parejas"},
+  {id:"ini-cor-f", cat:"Iniciales y fecha", name:"Pulseras iniciales y corazón",   price:18000, unit:"par", kind:"initheart", bg:"#f6e6bd", c:["#8a5cc4","#8a5cc4"], txt:["K","D"], desc:C},
+  {id:"nom-fecha", cat:"Iniciales y fecha", name:"Pulseras con nombre y fecha",    price:22000, unit:"par", kind:"name", bg:"#e7dcf4", c:["#C8102E","#1b1b1d"], txt:["ANA","LUIS"], desc:C},
+  {id:"ini-iman",  cat:"Iniciales y fecha", name:"Pulseras con inicial y corazón imán", price:24000, unit:"par", kind:"magnet", bg:"#d5e8f6", c:["#C8102E","#C8102E"], desc:C},
+  // Tornasol y luminosas
+  {id:"tor-ini",   cat:"Tornasol y luminosas", name:"Tornasol con inicial y número", price:20000, unit:"par", kind:"tornasol", bg:"#e7dcf4", c:["#8a5cc4","#2f6fed"], txt:["A","07"], desc:C},
+  {id:"tor-lum",   cat:"Tornasol y luminosas", name:"Tornasol y luminosa",           price:17000, unit:"par", kind:"tornasol", bg:"#d5e8f6", c:["#1f3b8a","#1b1b1d"], desc:L},
+  {id:"tor-sin",   cat:"Tornasol y luminosas", name:"Tornasol y luminosa sin tejido",price:14000, unit:"par", kind:"tornasol", bg:"#d9f0e3", c:["#1b1b1d","#1b1b1d"], desc:L},
+  {id:"con-tor",   cat:"Tornasol y luminosas", name:"Pulseras con tornasol y luminosa", price:17000, unit:"par", kind:"tornasol", bg:"#f7d9d4", c:["#e8467c","#e8467c"], desc:L},
+  {id:"king-queen",cat:"Tornasol y luminosas", name:"Pulseras King & Queen",         price:22000, unit:"par", kind:"crown", bg:"#f6e6bd", c:["#1b1b1d","#C9A24B"], desc:C},
+  {id:"imantadas", cat:"Tornasol y luminosas", name:"Imantadas con corazones luminosos", price:26000, unit:"par", kind:"magnet", bg:"#dfe9f7", c:["#1f3b8a","#1f3b8a"], desc:L},
+  // Recordatorios (sin precio en el catálogo: se cotiza)
+  {id:"honey",     cat:"Recordatorios", name:"Vasija “Honey”",            price:null, unit:"", img:"img/recordatorio-honey.webp", desc:"Mini vasija de miel pintada a mano con tarjeta temática y lazo. Ideal para abejitas y Winnie Pooh.", tag:"Con foto real"},
+  {id:"r-bautizo", cat:"Recordatorios", name:"Recordatorio de bautizo",   price:null, unit:"", kind:"gift", bg:"#d5e8f6", c:["#d5e8f6","#C9A24B","#ffffff"], desc:"Detalle delicado con mensaje y nombre del bautizado. Colores a tu elección."},
+  {id:"r-comunion",cat:"Recordatorios", name:"Recordatorio de comunión",  price:null, unit:"", kind:"gift", bg:"#f6e6bd", c:["#fff3d6","#C9A24B","#ffffff"], desc:"Un recuerdo con mucho significado para el día más especial."},
+  {id:"r-baby",    cat:"Recordatorios", name:"Detalle baby shower",       price:null, unit:"", kind:"gift", bg:"#f7d9d4", c:["#f7d9d4","#8fb8e0","#f6e6bd"], desc:"Para agradecer a quienes acompañan la llegada de tu bebé."},
+  {id:"r-boda",    cat:"Recordatorios", name:"Detalle de matrimonio",     price:null, unit:"", kind:"gift", bg:"#f1ece4", c:["#f1ece4","#C8102E","#ffffff"], desc:"Un recuerdo elegante con sus nombres y la fecha del gran día."},
+  {id:"r-grado",   cat:"Recordatorios", name:"Detalle de grado",          price:null, unit:"", kind:"gift", bg:"#e7dcf4", c:["#e7dcf4","#4a2c25","#f6e6bd"], desc:"Celebra el logro con un detalle para familia y amigos."},
+];
+
+/* ============ UTILIDADES ============ */
+const $ = (s,r=document)=>r.querySelector(s);
+const fmt = n => new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(n);
+const store = {
+  get(){try{return JSON.parse(localStorage.getItem("hb-cart")||"{}")}catch(e){return {}}},
+  set(v){try{localStorage.setItem("hb-cart",JSON.stringify(v))}catch(e){}}
+};
+let cart = store.get();
+const drafts = {};
+const state = {cat:"Todos", all:false};
+const prod = id => PRODUCTS.find(p=>p.id===id);
+
+/* ============ FONDO: destellos ============ */
+(function sparks(){
+  const box = $("#sparks"); let h="";
+  const spots=[[6,12],[14,70],[22,34],[31,88],[40,18],[48,60],[57,8],[63,78],[71,40],[79,92],[86,22],[92,64],[96,36],[10,48],[52,92],[75,14]];
+  spots.forEach(([x,y],i)=>{
+    const s = 10+((i*7)%5)*6;
+    h+=`<span class="sp" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;--d:${4+(i%5)*1.3}s;--l:${-(i%7)*.9}s"><svg viewBox="0 0 24 24"><use href="#spark"/></svg></span>`;
+  });
+  box.innerHTML=h;
+})();
+
+/* ============ ILUSTRACIONES ============ */
+function heart(x,y,s,fill){return `<path transform="translate(${x} ${y}) scale(${s})" d="M0 6C-12-3-7-12 0-5C7-12 12-3 0 6Z" fill="${fill}"/>`}
+function charm(kind,x,y,i,p){
+  const col = p.c[i]||p.c[0], t=(p.txt||[])[i]||"";
+  switch(kind){
+    case "initial": return `<rect x="${x-9}" y="${y-9}" width="18" height="18" rx="4" fill="#fff" stroke="${col}" stroke-width="1.6"/><text x="${x}" y="${y+4.5}" text-anchor="middle" font-size="12" font-weight="700" fill="${col}" font-family="Georgia,serif">${t}</text>`;
+    case "heart":   return heart(x,y,1.1,col);
+    case "initheart": return `<rect x="${x-24}" y="${y-8}" width="16" height="16" rx="3" fill="#fff" stroke="${col}" stroke-width="1.4"/><text x="${x-16}" y="${y+4}" text-anchor="middle" font-size="11" font-weight="700" fill="${col}" font-family="Georgia,serif">${t}</text>${heart(x+6,y,1.1,"#C8102E")}`;
+    case "glow":    return `<circle cx="${x}" cy="${y}" r="15" fill="#c9ff8a" opacity=".35"/><circle cx="${x}" cy="${y}" r="7" fill="#d9ff9e" stroke="#7bbf3a"/>`;
+    case "heartglow": return `<circle cx="${x}" cy="${y}" r="15" fill="#c9ff8a" opacity=".35"/>${heart(x,y,1.1,"#d9ff9e").replace('/>',' stroke="#7bbf3a"/>')}`;
+    case "tornasol":return `<circle cx="${x}" cy="${y}" r="8" fill="url(#tg${p.id})" stroke="rgba(0,0,0,.12)"/><circle cx="${x-2.5}" cy="${y-2.5}" r="2" fill="#fff" opacity=".8"/>`+(t?`<text x="${x+17}" y="${y+4}" font-size="10" font-weight="700" fill="${col}" font-family="Georgia,serif">${t}</text>`:"");
+    case "crown":   return `<circle cx="${x}" cy="${y+3}" r="12" fill="#c9ff8a" opacity=".3"/><path d="M${x-9} ${y+5}L${x-9} ${y-5}L${x-4.5} ${y}L${x} ${y-7}L${x+4.5} ${y}L${x+9} ${y-5}L${x+9} ${y+5}Z" fill="#E7B84B" stroke="#b98a22"/>`;
+    case "snake":   return `<path d="M${x-22} ${y+3}C${x-14} ${y-9} ${x-6} ${y+11} ${x+2} ${y-1}S${x+16} ${y-7} ${x+22} ${y+1}" fill="none" stroke="${p.c[0]}" stroke-width="5" stroke-linecap="round"/><circle cx="${x+22}" cy="${y+1}" r="4" fill="#d9ff9e" stroke="${p.c[0]}"/>`;
+    case "date":    return `<rect x="${x-26}" y="${y-8}" width="14" height="16" rx="3" fill="#fff" stroke="${col}" stroke-width="1.4"/><text x="${x-19}" y="${y+4}" text-anchor="middle" font-size="10" font-weight="700" fill="${col}" font-family="Georgia,serif">${t}</text>${heart(x-3,y,.9,col)}<text x="${x+8}" y="${y+4}" font-size="8" font-weight="700" fill="${col}" font-family="Georgia,serif">14·02</text>`;
+    case "name":    return `<text x="${x}" y="${y+4}" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="${col}" font-family="Georgia,serif">${t}</text>`;
+    case "magnet":  return `${heart(x-8,y,1.15,col)}${heart(x+8,y,1.15,col)}<circle cx="${x}" cy="${y-1}" r="1.8" fill="#fff" opacity=".9"/>`;
+    default:        return `<circle cx="${x}" cy="${y}" r="4.5" fill="#fff" stroke="${col}" stroke-width="1.4"/>`;
+  }
+}
+function braceletArt(p){
+  const sparkle=`<path d="M100 20c.6 6 4 9.4 10 10-6 .6-9.4 4-10 10-.6-6-4-9.4-10-10 6-.6 9.4-4 10-10z" fill="#c58f7e" opacity=".8"/>`;
+  const knot=(x,y,c)=>`<circle cx="${x}" cy="${y}" r="3.2" fill="${c}"/>`;
+  return `<svg viewBox="0 0 200 210" role="img" aria-label="${p.name}"><defs><linearGradient id="tg${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9ad5"/><stop offset=".5" stop-color="#8fd3ff"/><stop offset="1" stop-color="#b9f5cf"/></linearGradient></defs>
+  <rect width="200" height="210" fill="${p.bg}"/><circle cx="100" cy="108" r="86" fill="#fff" opacity=".45"/>
+  <g transform="rotate(-3 100 108)"><rect x="38" y="44" width="124" height="142" rx="6" fill="rgba(94,56,47,.12)" transform="translate(3 4)"/><rect x="38" y="44" width="124" height="142" rx="6" fill="#fff"/>
+  <rect x="62" y="56" width="76" height="3" rx="1.5" fill="#d8c6bf"/><rect x="72" y="64" width="56" height="3" rx="1.5" fill="#e6d9d3"/>
+  <path d="M46 112Q100 132 154 112" fill="none" stroke="${p.c[0]}" stroke-width="3.4" stroke-linecap="round"/>${knot(46,112,p.c[0])}${knot(154,112,p.c[0])}
+  <path d="M46 150Q100 170 154 150" fill="none" stroke="${p.c[1]||p.c[0]}" stroke-width="3.4" stroke-linecap="round"/>${knot(46,150,p.c[1]||p.c[0])}${knot(154,150,p.c[1]||p.c[0])}
+  ${charm(p.kind,100,122,0,p)}${charm(p.kind,100,160,1,p)}</g>${sparkle}</svg>`;
+}
+function giftArt(p){
+  const c=p.c;
+  return `<svg viewBox="0 0 200 210" role="img" aria-label="${p.name}"><rect width="200" height="210" fill="${p.bg}"/><circle cx="100" cy="108" r="82" fill="#fff" opacity=".55"/><rect x="62" y="96" width="76" height="62" rx="8" fill="#fff" stroke="${c[1]}" stroke-width="2"/><rect x="62" y="96" width="76" height="16" rx="6" fill="${c[2]}" stroke="${c[1]}" stroke-width="2"/><path d="M100 96v62" stroke="${c[1]}" stroke-width="3"/><path d="M100 96c-14-22-34-14-26-2 6 8 20 4 26 2zM100 96c14-22 34-14 26-2-6 8-20 4-26 2z" fill="${c[1]}" opacity=".85"/><circle cx="100" cy="96" r="5" fill="${c[1]}"/><path d="M160 36c.6 6 4 9.4 10 10-6 .6-9.4 4-10 10-.6-6-4-9.4-10-10 6-.6 9.4-4 10-10z" fill="#c58f7e" opacity=".8"/></svg>`;
+}
+const mediaOf = p => p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : (p.kind==="gift" ? giftArt(p) : braceletArt(p));
+const priceOf = p => p.price==null ? `<em>Cotiza por WhatsApp</em>` : `${fmt(p.price)} <small>${p.unit?"/ "+p.unit:""}</small>`;
+
+/* ============ CATÁLOGO ============ */
+function renderChips(){
+  const el=$("#catChips");
+  el.innerHTML=["Todos",...CATS].map(v=>`<button class="chip" data-v="${v}" aria-pressed="${state.cat===v}">${v}</button>`).join("");
+}
+$("#catChips").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  state.cat=b.dataset.v; state.all=false; renderChips(); renderGrid();
+});
+function renderGrid(){
+  let list = PRODUCTS.filter(p=>state.cat==="Todos"||p.cat===state.cat);
+  const total=list.length, limited = state.cat==="Todos" && !state.all && total>LIMIT;
+  if(limited) list=list.slice(0,LIMIT);
+  $("#grid").innerHTML = list.map((p,i)=>{
+    const q = drafts[p.id]||1;
+    return `<article class="card" data-id="${p.id}" style="animation-delay:${Math.min(i,8)*45}ms">
+      <div class="media">${mediaOf(p)}${p.tag?`<span class="tag">${p.tag}</span>`:""}</div>
+      <div class="body"><h3>${p.name}</h3><p>${p.desc}</p>
+        <div class="price">${priceOf(p)}</div>
+        <div class="buy">
+          <div class="qty"><button data-act="minus" aria-label="Menos">−</button><span>${q}</span><button data-act="plus" aria-label="Más">+</button></div>
+          <button class="add" data-act="add">Agregar</button>
+        </div>
+      </div></article>`;
+  }).join("");
+  $("#moreWrap").innerHTML = limited ? `<button class="btn btn-ghost" id="showAll">Ver los ${total} productos</button>` : "";
+}
+$("#moreWrap").addEventListener("click",e=>{ if(e.target.id==="showAll"){ state.all=true; renderGrid(); } });
+$("#grid").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-act]"); if(!b) return;
+  const id=b.closest(".card").dataset.id, act=b.dataset.act;
+  let q=drafts[id]||1;
+  if(act==="minus") q=Math.max(1,q-1);
+  if(act==="plus")  q=Math.min(999,q+1);
+  if(act==="add"){ cart[id]=(cart[id]||0)+q; drafts[id]=1; store.set(cart); renderCart(); b.closest(".card").querySelector(".qty span").textContent=1; toast("Agregado a tu pedido ✓"); return; }
+  drafts[id]=q; b.closest(".qty").querySelector("span").textContent=q;
+});
+
+/* ============ CARRITO ============ */
+function cartLines(){ return Object.entries(cart).filter(([id,q])=>prod(id)&&q>0).map(([id,q])=>({p:prod(id),q})); }
+function renderCart(){
+  const lines=cartLines();
+  const units=lines.reduce((s,l)=>s+l.q,0);
+  const total=lines.reduce((s,l)=>s+(l.p.price||0)*l.q,0);
+  const quote=lines.some(l=>l.p.price==null);
+  $("#cartCount").textContent=units;
+  $("#total").textContent=fmt(total);
+  $("#totalNote").textContent = quote ? "Los artículos “por cotizar” no están en el total. El pago y el envío se acuerdan por WhatsApp." : "El pago y el envío se acuerdan por WhatsApp.";
+  $("#send").disabled=!units;
+  $("#floatBar").classList.toggle("on",units>0);
+  document.body.classList.toggle("has-float",units>0);
+  $("#floatBtn").textContent=`Ver mi pedido · ${units} ${units===1?"detalle":"detalles"}${total?" · "+fmt(total):""}`;
+  $("#items").innerHTML = lines.length ? lines.map(({p,q})=>`
+    <div class="line-item" data-id="${p.id}">
+      <div class="th">${mediaOf(p)}</div>
+      <div><b>${p.name}</b><small>${p.price==null?"Por cotizar":fmt(p.price)+" "+(p.unit||"")}</small><br><button class="rm" data-act="rm">Quitar</button></div>
+      <div class="qty"><button data-act="minus" aria-label="Menos">−</button><span>${q}</span><button data-act="plus" aria-label="Más">+</button></div>
+    </div>`).join("") :
+    `<div class="cart-empty"><strong>Tu pedido está vacío</strong>Explora el catálogo y agrega los detalles que más te gusten.</div>`;
+}
+$("#items").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-act]"); if(!b) return;
+  const id=b.closest(".line-item").dataset.id;
+  if(b.dataset.act==="plus") cart[id]=Math.min(999,(cart[id]||0)+1);
+  if(b.dataset.act==="minus") cart[id]=Math.max(0,(cart[id]||0)-1);
+  if(b.dataset.act==="rm") cart[id]=0;
+  if(!cart[id]) delete cart[id];
+  store.set(cart); renderCart();
+});
+
+/* drawer */
+const drawer=$("#drawer"), scrim=$("#scrim"); let lastFocus=null;
+function openCart(){ lastFocus=document.activeElement; drawer.classList.add("on"); scrim.classList.add("on"); drawer.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; $("#closeCart").focus(); }
+function closeCart(){ drawer.classList.remove("on"); scrim.classList.remove("on"); drawer.setAttribute("aria-hidden","true"); document.body.style.overflow=""; lastFocus&&lastFocus.focus&&lastFocus.focus(); }
+["#openCart","#ctaCart","#floatBtn"].forEach(s=>$(s).addEventListener("click",openCart));
+$("#closeCart").addEventListener("click",closeCart); scrim.addEventListener("click",closeCart);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&drawer.classList.contains("on")) closeCart(); });
+
+/* formulario */
+OCCASIONS.forEach(ev=>{ const o=document.createElement("option"); o.textContent=o.value=ev; $("#event").append(o); });
+const dateEl=$("#date"); const today=new Date(); today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+dateEl.min=today.toISOString().slice(0,10);
+const FIELDS=["name","phone","event","date","notes"];
+try{ const saved=JSON.parse(localStorage.getItem("hb-form")||"{}"); FIELDS.forEach(k=>{ if(saved[k]) $("#"+k).value=saved[k]; }); }catch(e){}
+$("#orderForm").addEventListener("input",()=>{ try{ localStorage.setItem("hb-form",JSON.stringify(Object.fromEntries(FIELDS.map(k=>[k,$("#"+k).value])))); }catch(e){} });
+
+function validate(){
+  const phone=$("#phone").value.replace(/\D/g,"").replace(/^57(?=\d{10}$)/,"");
+  const rules={ name:$("#name").value.trim().length>=2, phone:phone.length===10, event:!!$("#event").value, date:!!dateEl.value&&dateEl.value>=dateEl.min };
+  let ok=true;
+  for(const k in rules){ $("#f-"+k).classList.toggle("bad",!rules[k]); if(!rules[k]) ok=false; }
+  if(!ok){ const first=$("#orderForm .bad input, #orderForm .bad select"); first&&first.focus(); }
+  return ok;
+}
+function buildMessage(){
+  const lines=cartLines(), total=lines.reduce((s,l)=>s+(l.p.price||0)*l.q,0), quote=lines.some(l=>l.p.price==null);
+  const d=dateEl.value ? new Date(dateEl.value+"T12:00:00").toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long",year:"numeric"}) : "";
+  return [
+    `¡Hola ${BUSINESS}! 👋 Quiero hacer este pedido:`,
+    "",
+    ...lines.map(({p,q})=>`• ${q} × ${p.name} — ${p.price==null?"por cotizar":fmt(p.price*q)}`),
+    "",
+    `Total estimado: ${fmt(total)}${quote?" (+ artículos por cotizar)":""}`,
+    "",
+    `👤 Nombre: ${$("#name").value.trim()}`,
+    `📱 Celular: ${$("#phone").value.trim()}`,
+    `🎉 Ocasión: ${$("#event").value}`,
+    `📅 Lo necesito para: ${d}`,
+    `🚚 Envío: ${document.querySelector('input[name="delivery"]:checked').value}`,
+    $("#notes").value.trim() ? `📝 Detalles: ${$("#notes").value.trim()}` : ""
+  ].filter((l,i,a)=>l!==""||a[i-1]!=="").join("\n").trim();
+}
+function openWa(text){ window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`,"_blank","noopener"); }
+$("#send").addEventListener("click",()=>{ if(!validate()) return; openWa(buildMessage()); toast("¡Gracias! Te esperamos en WhatsApp 💛"); });
+$("#copy").addEventListener("click",async()=>{
+  if(!cartLines().length) return toast("Primero agrega algo a tu pedido");
+  if(!validate()) return;
+  try{ await navigator.clipboard.writeText(buildMessage()); toast("Resumen copiado ✓"); }catch(e){ toast("No se pudo copiar"); }
+});
+const hello=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola, quiero información sobre sus pulseras y detalles para eventos.")}`;
+$("#waLink").href=hello; $("#waLink2").href=hello;
+
+/* UI */
+let tt; function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),2200); }
+const lb=$("#lb");
+document.querySelectorAll(".shot[data-full]").forEach(s=>s.addEventListener("click",()=>{ lb.querySelector("img").src=s.dataset.full; lb.querySelector("img").alt=s.querySelector("img").alt; lb.showModal(); }));
+lb.addEventListener("click",()=>lb.close());
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+/* init */
+renderChips(); renderGrid(); renderCart();
+</script>
+</body>
+</html>
